@@ -2,7 +2,7 @@
 
 """
 Author: Sean Brady
-Date:03/10/2022
+Date: 08/12/2022
 
 ATTENTION/CAUTION
 I AM NOT RESPONSIBLE FOR ANY USER MISUSE OF THE CODE IN THIS REPOSITORY!
@@ -22,7 +22,7 @@ import sys
 
 def main_server(ip, port, output):
     """
-    The main function to setup the server
+    The main function to setup the server with multiprocessing
     """
 
     if output == 0:
@@ -30,34 +30,30 @@ def main_server(ip, port, output):
 
     print(logo)
 
-    # Setting up the socket to use TCP
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
     # Telling the program that at the TCP layer, set reuse of local addresses to true
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-    #Binding the program to a IP and Port then listening for up to 5 connections
     sock.bind((ip, port))
     sock.listen(5)
     print(f"[INFO] Listening on port {port}")
 
     while True:
         try:
-            # Waiting on the connection to come in and get a connection object to interact with our session 
             conn_object, address = sock.accept()
             client_ip = address[0]
             client_port = address[1]
             print(f"[INFO] Accepted connection from {client_ip}:{client_port}")
-
-            # Initializing the session handler object 
+ 
             shell = Session_Handler(conn_object, client_ip, client_port)
 
-            # Start a new process with each connection. We need new processes beacuse cd'ing can cause problems with all threads sharing the PID
+            # Start a new process with each connection. We need new processes beacuse cd'ing while threading can cause problems with all threads sharing the PID
             proc = Process(target=shell.session_handler)
             proc.start()
 
 
         except KeyboardInterrupt:
-            print("\n[SHUTDOWN] Shutting Servers Down...")
+            print("\r[SHUTDOWN] Shutting Servers Down...")
             sock.close()
             exit(1)
 

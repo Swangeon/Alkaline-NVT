@@ -2,14 +2,13 @@
 
 """
 Author: Sean Brady
-Date:03/10/2022
+Date: 08/12/2022
 
 ATTENTION/CAUTION
 I AM NOT RESPONSIBLE FOR ANY USER MISUSE OF THE CODE IN THIS REPOSITORY!
-If you're using it as a reverse shell, only hack your own system/systems you have legal authority to use/pentest
+If you're using it as a normal or reverse shell, only hack your own system/systems you have legal authority to use/pentest
 """
 
-# Importing the modules I need
 from argparse import ArgumentParser
 from modules import logo, client_commands
 
