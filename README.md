@@ -1,7 +1,7 @@
 # Alkaline NVT
 Encrypted Client/Server Network Virtual Terminal (NVT) made in Python3.
 
-# NOTICE/CAUTION/ATTENTION
+# NOTICE
 - I AM NOT RESPONSIBLE FOR ANY USER MISUSE OF THE CODE IN THIS REPOSITORY!
 - If you're using it, only use it on your own system/systems you have legal authority to use/pentest
 
