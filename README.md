@@ -1,5 +1,5 @@
-# Alkaline Network Shell
-Encrypted Client/Server Network Virtual Terminal made in Python3.
+# Alkaline NVT
+Encrypted Client/Server Network Virtual Terminal (NVT) made in Python3.
 
 # NOTICE/CAUTION/ATTENTION
 - I AM NOT RESPONSIBLE FOR ANY USER MISUSE OF THE CODE IN THIS REPOSITORY!
