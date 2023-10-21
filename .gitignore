@@ -1,0 +1,25 @@
+# Virtual Environment Files
+venv/
+env/
+.venv/
+.env/
+
+# Python Compiled Files
+.src/modules/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.src/*egg-info/
+.mypy_cache/
+
+# Editor/IDE Files
+.vscode/
+.idea/
+.pycharm/
+.vscode/
+.emacs.d/
+*.swp
+
+# Testing Files
+.pytest_cache/
+*coverage
